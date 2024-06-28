@@ -10,10 +10,10 @@ namespace Biblioteca
     public class Livro :Documento
     {
         private string ISBN;
-        public Livro(int id, int idade)
-        {
-            Nome = nome;
-            Idade = idade;
-        }
+        //public Livro(int id, int idade)
+        //{
+        //    Nome = nome;
+        //    Idade = idade;
+        //}
     }
 }

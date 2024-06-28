@@ -11,8 +11,24 @@ namespace Biblioteca
         private int id;
         private string Nome;
         private string Email;
-        public int CPF;
+        private int CPF;
         private int Idade;
+
+        public Usuario()
+        {
+
+        }
+
+        public Usuario(int id, string nome, string email, int cPF, int idade)
+        {
+            this.id = id;
+            Nome = nome;
+            Email = email;
+            CPF = cPF;
+            Idade = idade;
+        }
+
+        public int getCPF() { return CPF; }
 
         public void ExibirDados()
         {
@@ -21,28 +37,31 @@ namespace Biblioteca
             Console.WriteLine($"Nome: {Nome}");
             Console.WriteLine($"E-mail: {Email}");
             Console.WriteLine($"Idade: {Idade}");
+            Console.WriteLine($"CPF: {CPF}");
             Console.WriteLine("-----------------------------------");
         }
-        public void PossuiCadastro()
+        
+        public Usuario Cadastrar()
         {
-            Console.WriteLine("Você já possui um cadastro?");
-            bool cadastro = bool.Parse(Console.ReadLine());
+            Console.WriteLine("Vamos começar o cadastro!");
+            Console.WriteLine("Qual é o seu nome completo?");
+            Nome = Console.ReadLine();
 
-            if (cadastro==true) 
-            {
-                Console.WriteLine("Informe seu CPF:");
-                int cpf  = int.Parse(Console.ReadLine());
+            Console.WriteLine("Qual é o seu Email?");
+            Email = Console.ReadLine();
 
-                if (cpf == CPF)
-                {
-                    Console.WriteLine("CPF Válido");
-                }
-                else
-                {
-                    Console.WriteLine("Digite um CPF válido");
-                }
-            }
+            Console.WriteLine("Qual é o seu CPF?");
+            CPF = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Qual é a sua idade?");
+            Idade = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Cadastro realizado com sucesso!");
+            ExibirDados();
+
+            return this;
         }
+
     }
 
 
