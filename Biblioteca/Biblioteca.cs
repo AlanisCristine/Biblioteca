@@ -10,9 +10,9 @@ namespace Biblioteca
     {
         List<Emprestimo> Emprestimo;
         List<Usuario> Usuarios = new List<Usuario>() {
-            new Usuario(1,"Perola", "perola@gamil.com",123456,20),
-            new Usuario(2,"Isadora", "isadora@gamil.com",1237456,20),
-            new Usuario(3,"Alanis", "alanis@gamil.com",1234586,20)
+            new Usuario(1,"Perola", "perola@gamil.com","123456",20),
+            new Usuario(2,"Isadora", "isadora@gamil.com","1237456",20),
+            new Usuario(3,"Alanis", "alanis@gamil.com","1234586",20)
         };
 
         public void AdicionarUsuarioBanco(Usuario usu)

@@ -29,6 +29,7 @@ namespace Biblioteca
                     b.AdicionarUsuarioBanco(usu.Cadastrar());
                    
                 }
+
             }
         }
     }
