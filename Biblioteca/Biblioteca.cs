@@ -36,10 +36,7 @@ namespace Biblioteca
                     if (cpf == usu.getCPF())
                     {
                         return usu;
-                    }
-                   
-
-
+                    }             
                 }
 
             }
