@@ -26,7 +26,8 @@ namespace Biblioteca
                 if(usu == null)
                 {
                     usu = new Usuario();
-                    usu.Cadastrar();
+                    b.AdicionarUsuarioBanco(usu.Cadastrar());
+                   
                 }
             }
         }

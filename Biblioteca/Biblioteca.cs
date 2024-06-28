@@ -29,14 +29,15 @@ namespace Biblioteca
             if (cadastro == true)
             {
                 Console.WriteLine("Informe seu CPF:");
-                int cpf = int.Parse(Console.ReadLine());
+                string cpf = Console.ReadLine();
 
                 foreach (Usuario usu in Usuarios)
                 {
-                    if (cpf == usu.getCPF())
+                    if (cpf == usu.getCPF().ToString())
                     {
+                        usu.ExibirDados();
                         return usu;
-                    }             
+                    }  
                 }
 
             }
