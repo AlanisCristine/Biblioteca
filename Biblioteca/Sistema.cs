@@ -21,13 +21,13 @@ namespace Biblioteca
 
             if (escolha == 1)
             {
-                //Console.WriteLine("Você já possui um cadastro?");
-                //bool cadastro= bool.Parse( Console.ReadLine()); 
-
-                //if(cadastro == true)
-                //{
-                //    Console.WriteLine("Qaul é o seu CPF?");
-                //}
+                Biblioteca b = new Biblioteca();
+                Usuario usu = b.PossuiCadastro();
+                if(usu == null)
+                {
+                    usu = new Usuario();
+                    usu.Cadastrar();
+                }
             }
         }
     }
