@@ -19,5 +19,14 @@ namespace Biblioteca
             Autor = autor;
             anoPublicacao = anopubli;
         }
+        public void ExibirRevista()
+        {
+            Console.WriteLine("----------Menu inicial-----------");
+            Console.WriteLine($"ISBN: {NumeroEdicao}");
+            Console.WriteLine($"Titulo: {Titulo}");
+            Console.WriteLine($"Autor: {Autor}");
+            Console.WriteLine($"Idade: {anoPublicacao}");
+            Console.WriteLine("-----------------------------------");
+        }
     }
 }

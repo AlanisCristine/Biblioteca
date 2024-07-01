@@ -30,7 +30,29 @@ namespace Biblioteca
                     b.AdicionarUsuarioBanco(usu.Cadastrar());
                    
                 }
-                
+                int escolha2 = 0;
+                Console.WriteLine("Você deseja realizar o empréstimo de um livro ou de uma revista?");
+                Console.WriteLine("1- Livro");
+                Console.WriteLine("2- Revista");
+
+                escolha2 = int.Parse(Console.ReadLine());
+
+                if(escolha2 == 1)
+                {
+                    Console.WriteLine("Livros Disponíveis");
+                    b.ListarLivros();
+                }
+                else if (escolha2 == 2)
+                {
+                    Console.WriteLine("Livros Disponíveis");
+                    b.ListarRevistas();
+                }
+                else
+                {
+                    Console.WriteLine("Escolha uma opçãp válida.");
+                }
+
+
             }
         }
     }

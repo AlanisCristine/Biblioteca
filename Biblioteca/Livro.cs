@@ -31,15 +31,7 @@ namespace Biblioteca
             Console.WriteLine("-----------------------------------");
         }
 
-        public void ExibirRevista()
-        {
-            Console.WriteLine("----------Menu inicial-----------");
-            Console.WriteLine($"ISBN: {ISBN}");
-            Console.WriteLine($"Titulo: {Titulo}");
-            Console.WriteLine($"Autor: {Autor}");
-            Console.WriteLine($"Idade: {anoPublicacao}");
-            Console.WriteLine("-----------------------------------");
-        }
+       
     }
 
 }
