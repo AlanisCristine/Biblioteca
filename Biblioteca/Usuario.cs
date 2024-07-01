@@ -11,7 +11,7 @@ namespace Biblioteca
         private int id;
         private string Nome;
         private string Email;
-        private int CPF;
+        private string CPF;
         private int Idade;
 
         public Usuario()
@@ -19,7 +19,7 @@ namespace Biblioteca
 
         }
 
-        public Usuario(int id, string nome, string email, int cPF, int idade)
+        public Usuario(int id, string nome, string email, string cPF, int idade)
         {
             this.id = id;
             Nome = nome;
@@ -28,7 +28,7 @@ namespace Biblioteca
             Idade = idade;
         }
 
-        public int getCPF() { return CPF; }
+        public string getCPF() { return CPF; }
 
         public void ExibirDados()
         {
@@ -51,7 +51,7 @@ namespace Biblioteca
             Email = Console.ReadLine();
 
             Console.WriteLine("Qual é o seu CPF?");
-            CPF = int.Parse(Console.ReadLine());
+            CPF = Console.ReadLine();
 
             Console.WriteLine("Qual é a sua idade?");
             Idade = int.Parse(Console.ReadLine());
