@@ -49,7 +49,21 @@ namespace Biblioteca
             Usuarios.Add(usu);
             Console.WriteLine("Usuário adicionado sucesso!!!");
         }
+        public void ListarLivros()
+        {
+            foreach (Livro li in Livros)
+            {
+                li.ExibirLivro();
+            }
+        }
 
+        public void ListarRevistas()
+        {
+            foreach (Revista re in Revistas)
+            {
+                re.ExibirRevista();
+            }
+        }
         public Usuario PossuiCadastro()
         {
             Console.WriteLine("Você já possui um cadastro?");
