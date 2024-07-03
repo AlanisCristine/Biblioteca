@@ -16,25 +16,25 @@ namespace Biblioteca
         };
         List<Livro> Livros = new List<Livro>() {
            // Terror
-            new Livro("Ninguém vai te ouvir gritar", "Mark Miler",2007),
-            new Livro("Cemitério dos Animais", "Stephen King",1983),
-            new Livro("Frankenstein", "Maria Shelley",1818),
-            //Romance
-            new Livro("É assim que acaba", "Collen Hoover",2016),
-            new Livro("Um amor de muitos verões", "Ana faria",2015),
-            new Livro("Orgulho e preconceito", "Jane Austen",1813),
+            new Livro(1,"Ninguém vai te ouvir gritar", true, "terror", 16, "Mark Miler",2007),
+            new Livro(2, "Cemitério dos Animais", "Stephen King",1983),
+            new Livro(3, "Frankenstein", "Maria Shelley",1818),
+            //Romance 
+            new Livro(4, "É assim que acaba", "Collen Hoover",2016),
+            new Livro(5, "Um amor de muitos verões", "Ana faria",2015),
+            new Livro(6, "Orgulho e preconceito", "Jane Austen",1813),
             // Suspense
-             new Livro("Um de nós está mentindo", "Karen M. MCmanus",2019),
-            new Livro("Obsessão fatal", "Gary Braver",2015),
-            new Livro("A garota do penhasco", "Lucinda Riley",1999),
+             new Livro(7, "Um de nós está mentindo", "Karen M. MCmanus",2019),
+            new Livro(8, "Obsessão fatal", "Gary Braver",2015),
+            new Livro(9, "A garota do penhasco", "Lucinda Riley",1999),
              // Infantil
-             new Livro("A menina bonita do laço de fita", "Karen M. MCmanus",2005),
-            new Livro("O menino maluquinho", "Ziraldo",1990),
-            new Livro("Diário de um banana", "Jeff Kinney",2010),
+             new Livro(10,"A menina bonita do laço de fita", "Karen M. MCmanus",2005),
+            new Livro(11,"O menino maluquinho", "Ziraldo",1990),
+            new Livro(12,"Diário de um banana", "Jeff Kinney",2010),
              // Fantasia
-             new Livro("Alice no país das maravilhas", "Lewis Carroll",1865),
-            new Livro("O hobbit", "John Ronald",1996),
-            new Livro("Sombra e osso", "Leigh Bardugo",2012),
+             new Livro(13,"Alice no país das maravilhas", "Lewis Carroll",1865),
+            new Livro(14,"O hobbit", "John Ronald",1996),
+            new Livro(15,"Sombra e osso", "Leigh Bardugo",2012),
         };
 
         List<Revista> Revistas = new List<Revista>()

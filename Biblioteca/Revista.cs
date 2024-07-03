@@ -9,13 +9,13 @@ namespace Biblioteca
     public class Revista : Documento
     { 
         private int NumeroEdicao;
-        public string Titulo { get; set; }
+        
         public string Autor { get; set; }
 
         public int anoPublicacao { get; set; }
-        public Revista(string titulo, string autor, int anopubli)
+        public Revista(int id, string titulo, bool disp, DateTime datadevolucao, Categoria cat, int classi, string autor, int anopubli)
+             : base(id, titulo, disp, datadevolucao, cat, classi)
         {
-            Titulo = titulo;
             Autor = autor;
             anoPublicacao = anopubli;
         }
