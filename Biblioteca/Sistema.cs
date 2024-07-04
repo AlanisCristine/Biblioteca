@@ -49,8 +49,9 @@ namespace Biblioteca
                 }
                 else
                 {
-                    Console.WriteLine("Escolha uma opçãp válida.");
+                    Console.WriteLine("Escolha uma opção válida.");
                 }
+                
 
 
             }
