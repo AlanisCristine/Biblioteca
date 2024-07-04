@@ -13,8 +13,8 @@ namespace Biblioteca
         public string Autor { get; set; }
 
         public int anoPublicacao { get; set; }
-        public Revista(int id, string titulo, bool disp, DateTime datadevolucao, Categoria cat, int classi, string autor, int anopubli)
-             : base(id, titulo, disp, datadevolucao, cat, classi)
+        public Revista(int id, string titulo, bool disp, Categoria cat, int classi, string autor, int anopubli)
+             : base(id, titulo, disp, cat, classi)
         {
             Autor = autor;
             anoPublicacao = anopubli;
@@ -22,7 +22,7 @@ namespace Biblioteca
         public void ExibirRevista()
         {
             Console.WriteLine("----------Menu inicial-----------");
-            Console.WriteLine($"ISBN: {NumeroEdicao}");
+            Console.WriteLine($"ISBN: {id}");
             Console.WriteLine($"Titulo: {Titulo}");
             Console.WriteLine($"Autor: {Autor}");
             Console.WriteLine($"Idade: {anoPublicacao}");
