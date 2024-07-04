@@ -23,17 +23,23 @@ namespace Biblioteca
             {
                 Biblioteca b = new Biblioteca();
                 Usuario usu = b.PossuiCadastro();
-                if(usu == null)
+                if (usu == null)
                 {
-                    
+
                     usu = new Usuario();
                     b.AdicionarUsuarioBanco(usu.Cadastrar());
-                   
+
                 }
-                
+
+            }
+
+            if (escolha == 3)
+            {
+                Biblioteca bi = new Biblioteca();
+                Usuario usu = bi.RealizarDoacao();
             }
         }
+
+
     }
-
-
 }
