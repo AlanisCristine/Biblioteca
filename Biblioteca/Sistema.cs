@@ -30,6 +30,19 @@ namespace Biblioteca
                     b.AdicionarUsuarioBanco(usu.Cadastrar());
                    
                 }
+                Console.WriteLine("Voce deseja editar algum dado?");
+                Console.WriteLine("1 - Sim, desejo.");
+                Console.WriteLine("2 - Não, obrigado(a)");
+                int editardad = int.Parse(Console.ReadLine());
+                if(editardad == 1)
+                {
+                    usu.EditarDados();
+                }
+                else if(editardad == 2)
+                {
+                    Console.WriteLine("Então vamos continuar com a sua escolha de livro :)");
+                }
+
                 int escolha2 = 0;
                 Console.WriteLine("Você deseja realizar o empréstimo de um livro ou de uma revista?");
                 Console.WriteLine("1- Livro");
