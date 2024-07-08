@@ -18,7 +18,7 @@ namespace Biblioteca
 
         List<Emprestimo> Emprestimo;
         List<Usuario> Usuarios = new List<Usuario>() {
-            new Usuario(1,"Perola", "perola@gamil.com","123456",20),
+            new Usuario(1,"Perola", "perola@gamil.com","123456",10),
             new Usuario(2,"Isadora", "isadora@gamil.com","1237456",20),
             new Usuario(3,"Alanis", "alanis@gamil.com","1234586",20)
         };
@@ -101,6 +101,66 @@ namespace Biblioteca
 
             return null;
         }
-        
+        public void EscolherRevista(Usuario u)
+        {
+            Console.WriteLine("Qual é o ID da revista você deseja escolher?");
+            int escolharevista = int.Parse(Console.ReadLine());
+            Revista rev = EscolherRevistaporId(escolharevista);
+
+            if (rev.getClassificacao() > u.Idade)
+            {
+                Console.WriteLine("Infelizmente esta revista não é indicada para a sua idade. Que tal escolher outra?");
+                EscolherRevista(u);
+            }
+            else
+            {
+                Console.WriteLine($"{rev.Titulo} Escolhida com sucesso!");
+            }
+        }
+
+            public void EscolherLivro(Usuario u)
+            {
+                Console.WriteLine("Qual é o ID do livro você deseja escolher?");
+                int escolhalivro = int.Parse(Console.ReadLine());
+                Livro liv = EscolherLivroporId(escolhalivro);
+
+
+                if (liv.getClassificacao() > u.Idade)
+                {
+                    Console.WriteLine("Infelizmente este livro não é indicado para a sua idade. Que tal escolher outro?");
+                    EscolherLivro(u);
+                }
+                else
+                {
+                    Console.WriteLine($"{liv.Titulo} Escolhida com sucesso!");
+                }
+
+
+            }
+
+            public Livro EscolherLivroporId(int id)
+            {
+
+                foreach (Livro l in Livros)
+                {
+                    if (id == l.id)
+                    {
+                        return l;
+                    }
+                }
+                return null;
+            }
+            public Revista EscolherRevistaporId(int id)
+            {
+                foreach (Revista r in Revistas)
+                {
+                    if (id == r.id)
+                    {
+                        return r;
+                    }
+                }
+                return null;
+            }
+
+        }
     }
-}

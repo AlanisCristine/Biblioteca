@@ -13,7 +13,7 @@ namespace Biblioteca
         private string Nome;
         private string Email;
         private string CPF;
-        private int Idade;
+        public int Idade;
 
         public Usuario()
         {

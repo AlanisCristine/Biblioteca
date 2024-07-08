@@ -8,6 +8,7 @@ namespace Biblioteca
 {
     public class Revista : Documento
     { 
+        
         private int NumeroEdicao;
         
         public string Autor { get; set; }
@@ -28,5 +29,7 @@ namespace Biblioteca
             Console.WriteLine($"Idade: {anoPublicacao}");
             Console.WriteLine("-----------------------------------");
         }
+
+        
     }
 }
