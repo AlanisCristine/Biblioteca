@@ -21,6 +21,7 @@ namespace Biblioteca
 
             if (escolha == 1)
             {
+                
                 Biblioteca b = new Biblioteca();
                 Usuario usu = b.PossuiCadastro();
                 if(usu == null)
@@ -43,6 +44,7 @@ namespace Biblioteca
                     Console.WriteLine("Então vamos continuar com a sua escolha de livro :)");
                 }
 
+                
                 int escolha2 = 0;
                 Console.WriteLine("Você deseja realizar o empréstimo de um livro ou de uma revista?");
                 Console.WriteLine("1- Livro");
@@ -54,11 +56,13 @@ namespace Biblioteca
                 {
                     Console.WriteLine("Livros Disponíveis");
                     b.ListarLivros();
+                    b.EscolherLivro(usu);
                 }
                 else if (escolha2 == 2)
                 {
                     Console.WriteLine("Livros Disponíveis");
                     b.ListarRevistas();
+                    b.EscolherRevista(usu);
                 }
                 else
                 {

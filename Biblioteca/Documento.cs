@@ -8,8 +8,8 @@ namespace Biblioteca
 {
     public class Documento
     {
-        protected int id;
-        protected string Titulo;
+        public int id;
+        public string Titulo;
         private bool Disponivel;
         private DateTime DataDevolucao;
         private Categoria Categoria;
@@ -32,6 +32,10 @@ namespace Biblioteca
             DataDevolucao = DateTime.Now.AddDays(7);
             Categoria = categoria;
             Classificacao = classificacao;
+        }
+        public int getClassificacao()
+        {
+            return Classificacao;
         }
     }
 }
