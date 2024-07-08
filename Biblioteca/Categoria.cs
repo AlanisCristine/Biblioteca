@@ -10,5 +10,11 @@ namespace Biblioteca
     {
         private string Genero;
         private int Id;
+
+        public Categoria(int id, string gen)
+        {
+            Id = id;
+            Genero = gen;
+        }
     }
 }

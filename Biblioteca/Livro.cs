@@ -9,37 +9,29 @@ namespace Biblioteca
 {
     public class Livro : Documento
     {
-        private string ISBN;
-        public string Titulo { get; set; }
+        
         public string Autor { get; set; }
 
         public int anoPublicacao { get; set; }
 
-        public Livro(string titulo, string autor, int anopubli)
-        {
-            Titulo = titulo;
+        public Livro(int id, string titulo, bool disp, Categoria cat, int classi, string autor, int anopubli)
+            :base(id,titulo,disp, cat, classi)
+        {            
             Autor = autor;
             anoPublicacao = anopubli;
         }
         public void ExibirLivro()
         {
-            Console.WriteLine("----------Menu inicial-----------");
-            Console.WriteLine($"ISBN: {ISBN}");
+            Console.WriteLine("----------Livro:-----------");
+            Console.WriteLine($"ISBN: {id}");
             Console.WriteLine($"Titulo: {Titulo}");
             Console.WriteLine($"Autor: {Autor}");
             Console.WriteLine($"Idade: {anoPublicacao}");
+            //Console.WriteLine($"Classificação indicativa: {classi}");
             Console.WriteLine("-----------------------------------");
         }
 
-        public void ExibirRevista()
-        {
-            Console.WriteLine("----------Menu inicial-----------");
-            Console.WriteLine($"ISBN: {ISBN}");
-            Console.WriteLine($"Titulo: {Titulo}");
-            Console.WriteLine($"Autor: {Autor}");
-            Console.WriteLine($"Idade: {anoPublicacao}");
-            Console.WriteLine("-----------------------------------");
-        }
+       
     }
 
 }
