@@ -13,7 +13,9 @@ namespace Biblioteca
         private bool Disponivel;
         private DateTime DataDevolucao;
         private Categoria Categoria;
-        private int Classificacao;
+        public int Classificacao;
+
+       
 
         List<Categoria> Categorias = new List<Categoria>
         {
