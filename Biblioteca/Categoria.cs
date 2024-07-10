@@ -8,8 +8,8 @@ namespace Biblioteca
 {
     public class Categoria
     {
-        private string Genero;
-        private int Id;
+        public string Genero;
+        public int Id;
 
         public Categoria(int id, string gen)
         {

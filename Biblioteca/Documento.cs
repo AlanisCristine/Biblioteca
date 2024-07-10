@@ -12,7 +12,7 @@ namespace Biblioteca
         public string Titulo;
         private bool Disponivel;
         private DateTime DataDevolucao;
-        private Categoria Categoria;
+        public Categoria Categoria;
         public int Classificacao;
 
        
