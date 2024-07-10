@@ -63,6 +63,7 @@ namespace Biblioteca
             Usuarios.Add(usu);
             Console.WriteLine("Usuário adicionado sucesso!!!");
         }
+
         public void ListarLivros()
         {
             foreach (Livro li in Livros)
@@ -78,12 +79,17 @@ namespace Biblioteca
                 re.ExibirRevista();
             }
         }
+
+        Usuario usu = new Usuario();
         public Usuario PossuiCadastro()
         {
             Console.WriteLine("Você já possui um cadastro?");
-            bool cadastro = bool.Parse(Console.ReadLine());
+            Console.WriteLine("1 - Sim, possuo e desejo entrar.");
+            Console.WriteLine("2 - Não possuo e desejo Criar.");
 
-            if (cadastro == true)
+            int cadastro = int.Parse(Console.ReadLine());
+
+            if (cadastro == 1)
             {
                 Console.WriteLine("Informe seu CPF:");
                 string cpf = Console.ReadLine();
@@ -97,7 +103,10 @@ namespace Biblioteca
                     }
 
                 }
-
+            }
+            else if (cadastro == 2)
+            {
+                usu.Cadastrar();
             }
 
             return null;
@@ -121,15 +130,16 @@ namespace Biblioteca
 
         public void EscolherLivro(Usuario u)
         {
-            
+
             Console.WriteLine("Qual é o ID do livro você deseja escolher?");
             int escolhalivro = int.Parse(Console.ReadLine());
             Livro liv = EscolherLivroporId(escolhalivro);
-            
+
 
             if (liv.getClassificacao() > u.Idade)
             {
                 Console.WriteLine("Infelizmente este livro não é indicado para a sua idade. Que tal escolher outro?");
+                ListarLivros();
                 EscolherLivro(u);
             }
             else
@@ -180,20 +190,24 @@ namespace Biblioteca
                 Console.WriteLine(" 5 - Infantil");
                 int escolha2 = int.Parse(Console.ReadLine());
 
-                
-                    foreach(Livro l in Livros)
+
+                foreach (Livro l in Livros)
+                {
+                    if (l.Categoria.Id == escolha2)
                     {
-                        if(l.Categoria.Id == escolha2)
-                        {
-                            Console.WriteLine($"-----Livros de {l.Categoria.Genero}-----");
-                         l.ExibirLivro();
-                        }
+                        Console.WriteLine($"-----Livros de {l.Categoria.Genero}-----");
+                        l.ExibirLivro();
                     }
+                }
 
             }
             else if (escolha == 2)
             {
-               ExibirLivro(); 
+                ListarLivros();
+            }
+            else
+            {
+                Console.WriteLine("Escolha uma opção válida!!");
             }
 
         }
@@ -206,7 +220,7 @@ namespace Biblioteca
             int escolha = int.Parse(Console.ReadLine());
 
 
-            if(escolha == 2)
+            if (escolha == 1)
             {
                 Console.WriteLine("Qual dos gêneros abaixo?");
                 Console.WriteLine(" 5 - Infantil");
