@@ -76,8 +76,14 @@ namespace Biblioteca
             {
 
             }
+
+            if (escolha == 3)
+            {
+                Biblioteca bi = new Biblioteca();
+                Usuario usu = bi.RealizarDoacao();
+            }
         }
+
+
     }
-
-
 }
