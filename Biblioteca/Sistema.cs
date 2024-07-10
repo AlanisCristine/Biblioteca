@@ -23,14 +23,15 @@ namespace Biblioteca
             {
                 
                 Biblioteca b = new Biblioteca();
+                
                 Usuario usu = b.PossuiCadastro();
-                if(usu == null)
-                {
+                //if(usu == null)
+                //{
                     
-                    usu = new Usuario();
-                    b.AdicionarUsuarioBanco(usu.Cadastrar());
+                //    usu = new Usuario();
+                //    b.AdicionarUsuarioBanco(usu.Cadastrar());
                    
-                }
+                //}
                 Console.WriteLine("Voce deseja editar algum dado?");
                 Console.WriteLine("1 - Sim, desejo.");
                 Console.WriteLine("2 - Não, obrigado(a)");
