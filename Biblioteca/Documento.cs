@@ -24,6 +24,9 @@ namespace Biblioteca
             new Categoria (3, "Suspense"),
             new Categoria (4, "Fantasia"),
             new Categoria (5, "Infantil"),
+            new Categoria (6, "Moda"),
+            new Categoria(7, "Culinária"),
+
         };
 
         public Documento(int id, string titulo, bool disponivel, Categoria categoria, int classificacao)
