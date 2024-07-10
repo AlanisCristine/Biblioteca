@@ -189,8 +189,41 @@ namespace Biblioteca
                          l.ExibirLivro();
                         }
                     }
+
+            }
+            else if (escolha == 2)
+            {
+               ExibirLivro(); 
             }
 
+        }
+
+        public void SepararRevistaporgenero()
+        {
+            Console.WriteLine("Você deseja escolher um gênero específico ou ver todos os livros disponíveis?");
+            Console.WriteLine("1 - Escolher um gênero específico");
+            Console.WriteLine("2 - Ver todos os livros");
+            int escolha = int.Parse(Console.ReadLine());
+
+
+            if(escolha == 2)
+            {
+                Console.WriteLine("Qual dos gêneros abaixo?");
+                Console.WriteLine(" 5 - Infantil");
+                Console.WriteLine(" 6 - Moda");
+                Console.WriteLine(" 7 - Culinária");
+
+                int escolha2 = int.Parse(Console.ReadLine());
+
+                foreach (Revista r in Revistas)
+                {
+                    if (r.Categoria.Id == escolha2)
+                    {
+                        Console.WriteLine($"-----Livros de {r.Categoria.Genero}-----");
+                        r.ExibirRevista();
+                    }
+                }
+            }
         }
     }
 }
