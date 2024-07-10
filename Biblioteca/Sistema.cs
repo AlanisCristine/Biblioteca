@@ -54,8 +54,9 @@ namespace Biblioteca
 
                 if(escolha2 == 1)
                 {
+                    b.SepararLivroporgenero();
                     Console.WriteLine("Livros Disponíveis");
-                    b.ListarLivros();
+                    //b.ListarLivros();
                     b.EscolherLivro(usu);
                 }
                 else if (escolha2 == 2)
