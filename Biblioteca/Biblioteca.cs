@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -118,49 +119,75 @@ namespace Biblioteca
             }
         }
 
-            public void EscolherLivro(Usuario u)
+        public void EscolherLivro(Usuario u)
+        {
+            Console.WriteLine("Qual é o ID do livro você deseja escolher?");
+            int escolhalivro = int.Parse(Console.ReadLine());
+            Livro liv = EscolherLivroporId(escolhalivro);
+
+
+            if (liv.getClassificacao() > u.Idade)
             {
-                Console.WriteLine("Qual é o ID do livro você deseja escolher?");
-                int escolhalivro = int.Parse(Console.ReadLine());
-                Livro liv = EscolherLivroporId(escolhalivro);
-
-
-                if (liv.getClassificacao() > u.Idade)
-                {
-                    Console.WriteLine("Infelizmente este livro não é indicado para a sua idade. Que tal escolher outro?");
-                    EscolherLivro(u);
-                }
-                else
-                {
-                    Console.WriteLine($"{liv.Titulo} Escolhida com sucesso!");
-                }
-
-
+                Console.WriteLine("Infelizmente este livro não é indicado para a sua idade. Que tal escolher outro?");
+                EscolherLivro(u);
+            }
+            else
+            {
+                Console.WriteLine($"{liv.Titulo} Escolhida com sucesso!");
             }
 
-            public Livro EscolherLivroporId(int id)
-            {
 
-                foreach (Livro l in Livros)
-                {
-                    if (id == l.id)
-                    {
-                        return l;
-                    }
-                }
-                return null;
-            }
-            public Revista EscolherRevistaporId(int id)
+        }
+
+        public Livro EscolherLivroporId(int id)
+        {
+
+            foreach (Livro l in Livros)
             {
-                foreach (Revista r in Revistas)
+                if (id == l.id)
                 {
-                    if (id == r.id)
+                    return l;
+                }
+            }
+            return null;
+        }
+        public Revista EscolherRevistaporId(int id)
+        {
+            foreach (Revista r in Revistas)
+            {
+                if (id == r.id)
+                {
+                    return r;
+                }
+            }
+            return null;
+        }
+        public void SepararLivroporgenero()
+        {
+            Console.WriteLine("Você deseja escolher um gênero específico ou ver todos os livros disponíveis?");
+            Console.WriteLine("1 - Escolher um gênero específico");
+            Console.WriteLine("2 - Ver todos os livros");
+            int escolha = int.Parse(Console.ReadLine());
+
+            if (escolha == 1)
+            {
+                Console.WriteLine("Qual dos generos abaixo?");
+                Console.WriteLine(" 1 - Terror");
+                Console.WriteLine(" 2 - Roamance");
+                Console.WriteLine(" 3 - Fantasia");
+                Console.WriteLine(" 4 - Suspense");
+                Console.WriteLine(" 5 - Infantil");
+                int escolha2 = int.Parse(Console.ReadLine());
+
+                if( escolha2 == 1)
+                {
+                    foreach( Livro l in Livros)
                     {
-                        return r;
+                        Console.WriteLine(l.
                     }
                 }
-                return null;
             }
 
         }
     }
+}

@@ -68,8 +68,9 @@ namespace Biblioteca
                 {
                     Console.WriteLine("Escolha uma opção válida.");
                 }
-                
-
+            }
+            else if (escolha == 0)
+            {
 
             }
 
