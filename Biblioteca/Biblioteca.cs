@@ -121,10 +121,11 @@ namespace Biblioteca
 
         public void EscolherLivro(Usuario u)
         {
+            
             Console.WriteLine("Qual é o ID do livro você deseja escolher?");
             int escolhalivro = int.Parse(Console.ReadLine());
             Livro liv = EscolherLivroporId(escolhalivro);
-
+            
 
             if (liv.getClassificacao() > u.Idade)
             {
@@ -171,7 +172,7 @@ namespace Biblioteca
 
             if (escolha == 1)
             {
-                Console.WriteLine("Qual dos generos abaixo?");
+                Console.WriteLine("Qual dos gêneros abaixo?");
                 Console.WriteLine(" 1 - Terror");
                 Console.WriteLine(" 2 - Roamance");
                 Console.WriteLine(" 3 - Fantasia");
@@ -179,13 +180,15 @@ namespace Biblioteca
                 Console.WriteLine(" 5 - Infantil");
                 int escolha2 = int.Parse(Console.ReadLine());
 
-                if( escolha2 == 1)
-                {
-                    foreach( Livro l in Livros)
+                
+                    foreach(Livro l in Livros)
                     {
-                        Console.WriteLine(l.
+                        if(l.Categoria.Id == escolha2)
+                        {
+                            Console.WriteLine($"-----Livros de {l.Categoria.Genero}-----");
+                         l.ExibirLivro();
+                        }
                     }
-                }
             }
 
         }
