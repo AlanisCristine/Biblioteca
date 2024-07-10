@@ -61,8 +61,9 @@ namespace Biblioteca
                 }
                 else if (escolha2 == 2)
                 {
-                    Console.WriteLine("Livros Disponíveis");
-                    b.ListarRevistas();
+                    b.SepararRevistaporgenero();
+                    Console.WriteLine("Revistas Disponíveis");
+                    //b.ListarRevistas();
                     b.EscolherRevista(usu);
                 }
                 else
