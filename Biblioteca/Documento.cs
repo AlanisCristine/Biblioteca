@@ -11,7 +11,7 @@ namespace Biblioteca
         public int id;
         public string Titulo;
         private bool Disponivel;
-        private DateTime DataDevolucao;
+        public DateTime DataDevolucao;
         public Categoria Categoria;
         public int Classificacao;
 

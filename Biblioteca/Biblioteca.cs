@@ -19,7 +19,7 @@ namespace Biblioteca
 
         List<Emprestimo> Emprestimo;
         List<Usuario> Usuarios = new List<Usuario>() {
-            new Usuario(1,"Perola", "perola@gamil.com","123456",10),
+            new Usuario(1,"Perola", "perola@gamil.com","123456",20),
             new Usuario(2,"Isadora", "isadora@gamil.com","1237456",20),
             new Usuario(3,"Alanis", "alanis@gamil.com","1234586",20)
         };
@@ -212,11 +212,15 @@ namespace Biblioteca
 
         }
 
+        
+
+
+
         public void SepararRevistaporgenero()
         {
-            Console.WriteLine("Você deseja escolher um gênero específico ou ver todos os livros disponíveis?");
+            Console.WriteLine("Você deseja escolher um gênero específico ou ver todos as revistas disponíveis?");
             Console.WriteLine("1 - Escolher um gênero específico");
-            Console.WriteLine("2 - Ver todos os livros");
+            Console.WriteLine("2 - Ver todas as revistas");
             int escolha = int.Parse(Console.ReadLine());
 
 
@@ -238,6 +242,52 @@ namespace Biblioteca
                     }
                 }
             }
+            else if (escolha == 2)
+            {
+                ListarRevistas();
+            }
+            else
+            {
+                Console.WriteLine("Escolha uma opção válida!!");
+            }
+           
+     
         }
+
+        public void DevoluçãoRevista()
+        {
+            DateTime hoje = DateTime.Now;
+            DateTime DataDevolucao = hoje.AddDays(7);
+            Console.WriteLine($"Você tem até 7 dias para devolver a sua revista." +
+            $" \nO prazo da sua Devolução é: {DataDevolucao}");
+        }
+
+        public void DevoluçãoLivro()
+        {
+            DateTime hoje = DateTime.Now;
+            DateTime DataDevolucao = hoje.AddDays(7);
+            Console.WriteLine($"Você tem até 7 dias para devolver o seu livro." +
+            $" O prazo da sua Devolução é: {DataDevolucao}");
+
+            Console.WriteLine("O usuário que devolveu este livro irá sofrer alguma Penalidade?");
+            Console.WriteLine("1 - Sim, irá sofrer penalidades");
+            Console.WriteLine("2 - Não irá sofrer penalidades");
+            int pena = int.Parse(Console.ReadLine());
+            if(pena == 1)
+            {
+                Penalidades();
+            }
+        }
+        
+        public void Penalidades()
+        {
+            Console.WriteLine("Qual das penalidade o usuário irá sofrer?");
+            Console.WriteLine("1 - Danos");
+            Console.WriteLine("2 - Atraso na entrega");
+            int penali = int.Parse(Console.ReadLine());
+
+
+        }
+
     }
 }
