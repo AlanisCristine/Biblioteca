@@ -59,6 +59,7 @@ namespace Biblioteca
                     Console.WriteLine("Livros Disponíveis");
                     //b.ListarLivros();
                     b.EscolherLivro(usu);
+                    b.DevoluçãoLivro();
                 }
                 else if (escolha2 == 2)
                 {
@@ -66,6 +67,7 @@ namespace Biblioteca
                     Console.WriteLine("Revistas Disponíveis");
                     //b.ListarRevistas();
                     b.EscolherRevista(usu);
+                    b.DevoluçãoRevista();
                 }
                 else
                 {
@@ -77,11 +79,7 @@ namespace Biblioteca
 
             }
 
-            if (escolha == 3)
-            {
-                Biblioteca bi = new Biblioteca();
-                Usuario usu = bi.RealizarDoacao();
-            }
+          
         }
 
 
