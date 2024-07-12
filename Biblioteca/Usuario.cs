@@ -30,7 +30,7 @@ namespace Biblioteca
         }
 
         public string getCPF() { return CPF; }
-
+        public string getNome() { return Nome; }
         public void ExibirDados()
         {
             Console.WriteLine("----------Menu inicial-----------");

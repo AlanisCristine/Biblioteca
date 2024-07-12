@@ -74,14 +74,34 @@ namespace Biblioteca
                     Console.WriteLine("Escolha uma opção válida.");
                 }
             }
-            else if (escolha == 0)
+            else if (escolha == 2)
             {
+                Biblioteca b = new Biblioteca();
 
+                Console.WriteLine("Você deseja devolver um livro ou uma revista?");
+                Console.WriteLine("1 - Livro");
+                Console.WriteLine("2 - Revista");
+                int dev = int.Parse(Console.ReadLine());
+
+                if (dev == 1)
+                {
+                    b.DevEntrar();
+                    b.DevoluçãoLivro();
+                }
+                else if (dev == 2)
+                {
+                    b.DevEntrar();
+                    b.DevoluçãoRevista();
+                }
+                else
+                {
+                    Console.WriteLine("scolha uma opção válida!");
+                }
             }
 
           
         }
-
+        
 
     }
 }
