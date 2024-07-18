@@ -23,14 +23,15 @@ namespace Biblioteca
             {
                 
                 Biblioteca b = new Biblioteca();
+                
                 Usuario usu = b.PossuiCadastro();
-                if (usu == null)
-                {
-
-                    usu = new Usuario();
-                    b.AdicionarUsuarioBanco(usu.Cadastrar());
+                //if(usu == null)
+                //{
+                    
+                //    usu = new Usuario();
+                //    b.AdicionarUsuarioBanco(usu.Cadastrar());
                    
-                }
+                //}
                 Console.WriteLine("Voce deseja editar algum dado?");
                 Console.WriteLine("1 - Sim, desejo.");
                 Console.WriteLine("2 - Não, obrigado(a)");
@@ -58,6 +59,7 @@ namespace Biblioteca
                     Console.WriteLine("Livros Disponíveis");
                     //b.ListarLivros();
                     b.EscolherLivro(usu);
+                    b.DevoluçãoLivro();
                 }
                 else if (escolha2 == 2)
                 {
@@ -65,24 +67,41 @@ namespace Biblioteca
                     Console.WriteLine("Revistas Disponíveis");
                     //b.ListarRevistas();
                     b.EscolherRevista(usu);
+                    b.DevoluçãoRevista();
                 }
                 else
                 {
                     Console.WriteLine("Escolha uma opção válida.");
                 }
             }
-            else if (escolha == 0)
+            else if (escolha == 2)
             {
+                Biblioteca b = new Biblioteca();
 
+                Console.WriteLine("Você deseja devolver um livro ou uma revista?");
+                Console.WriteLine("1 - Livro");
+                Console.WriteLine("2 - Revista");
+                int dev = int.Parse(Console.ReadLine());
+
+                if (dev == 1)
+                {
+                    b.DevEntrar();
+                    b.DevoluçãoLivro();
+                }
+                else if (dev == 2)
+                {
+                    b.DevEntrar();
+                    b.DevoluçãoRevista();
+                }
+                else
+                {
+                    Console.WriteLine("scolha uma opção válida!");
+                }
             }
 
-            if (escolha == 3)
-            {
-                Biblioteca bi = new Biblioteca();
-                Usuario usu = bi.RealizarDoacao();
-            }
+          
         }
-
+        
 
     }
 }

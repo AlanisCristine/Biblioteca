@@ -27,7 +27,8 @@ namespace Biblioteca
             Console.WriteLine($"Titulo: {Titulo}");
             Console.WriteLine($"Autor: {Autor}");
             Console.WriteLine($"Idade: {anoPublicacao}");
-            Console.WriteLine($"Classificação indicativa: {Classificacao}");ro
+            Console.WriteLine($"Classificação indicativa: {Classificacao}");
+            Console.WriteLine($"Disponibilidade: {GetDisponivel()}");
             Console.WriteLine("-----------------------------------");
         }
 

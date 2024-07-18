@@ -19,7 +19,7 @@ namespace Biblioteca
 
         List<Emprestimo> Emprestimo;
         List<Usuario> Usuarios = new List<Usuario>() {
-            new Usuario(1,"Perola", "perola@gamil.com","123456",10),
+            new Usuario(1,"Perola", "perola@gamil.com","123456",20),
             new Usuario(2,"Isadora", "isadora@gamil.com","1237456",20),
             new Usuario(3,"Alanis", "alanis@gamil.com","1234586",20)
         };
@@ -33,7 +33,7 @@ namespace Biblioteca
         }
         public void InicializarBiblioteca()
         {
-            Livros.Add(new Livro(1, "Ninguém vai te ouvir gritar", true, Terror, 16, "Mark Miler", 2007));
+            Livros.Add(new Livro(1, "Ninguém vai te ouvir gritar", false, Terror, 16, "Mark Miler", 2007));
             Livros.Add(new Livro(2, "Cemitério dos Animais", true, Terror, 16, "Stephen King", 1983));
             Livros.Add(new Livro(3, "Frankenstein", true, Terror, 16, "Maria Shelley", 1818));
             Livros.Add(new Livro(4, "É assim que acaba", true, Romance, 18, "Collen Hoover", 2016));
@@ -63,11 +63,16 @@ namespace Biblioteca
             Usuarios.Add(usu);
             Console.WriteLine("Usuário adicionado sucesso!!!");
         }
+
         public void ListarLivros()
         {
             foreach (Livro li in Livros)
             {
-                li.ExibirLivro();
+                if (li.GetDisponivel())
+                {
+                    li.ExibirLivro();
+                }
+
             }
         }
 
@@ -75,15 +80,23 @@ namespace Biblioteca
         {
             foreach (Revista re in Revistas)
             {
-                re.ExibirRevista();
+                if (re.GetDisponivel())
+                {
+                    re.ExibirRevista();
+                }
             }
         }
+
+        Usuario usu = new Usuario();
         public Usuario PossuiCadastro()
         {
             Console.WriteLine("Você já possui um cadastro?");
-            bool cadastro = bool.Parse(Console.ReadLine());
+            Console.WriteLine("1 - Sim, possuo e desejo entrar.");
+            Console.WriteLine("2 - Não possuo e desejo Criar.");
 
-            if (cadastro == true)
+            int cadastro = int.Parse(Console.ReadLine());
+
+            if (cadastro == 1)
             {
                 Console.WriteLine("Informe seu CPF:");
                 string cpf = Console.ReadLine();
@@ -97,10 +110,33 @@ namespace Biblioteca
                     }
 
                 }
-
+            }
+            else if (cadastro == 2)
+            {
+                usu.Cadastrar();
             }
 
             return null;
+        }
+
+        public Usuario DevEntrar()
+        {
+            Console.WriteLine("Informe seu CPF:");
+            string cpf = Console.ReadLine();
+
+            foreach (Usuario usu in Usuarios)
+            {
+                if (cpf == usu.getCPF().ToString())
+                {
+                    usu.ExibirDados();
+                    return usu;
+                } 
+                else
+                {
+                    Console.WriteLine("CPF inválido!!!");
+                }
+            }
+                return null;
         }
         public void EscolherRevista(Usuario u)
         {
@@ -121,15 +157,17 @@ namespace Biblioteca
 
         public void EscolherLivro(Usuario u)
         {
-            
+
             Console.WriteLine("Qual é o ID do livro você deseja escolher?");
             int escolhalivro = int.Parse(Console.ReadLine());
             Livro liv = EscolherLivroporId(escolhalivro);
-            
+            liv.SetDisponivel();
+
 
             if (liv.getClassificacao() > u.Idade)
             {
                 Console.WriteLine("Infelizmente este livro não é indicado para a sua idade. Que tal escolher outro?");
+                ListarLivros();
                 EscolherLivro(u);
             }
             else
@@ -180,33 +218,38 @@ namespace Biblioteca
                 Console.WriteLine(" 5 - Infantil");
                 int escolha2 = int.Parse(Console.ReadLine());
 
-                
-                    foreach(Livro l in Livros)
+
+                foreach (Livro l in Livros)
+                {
+                    if (l.Categoria.Id == escolha2 && l.GetDisponivel() == true)
                     {
-                        if(l.Categoria.Id == escolha2)
-                        {
-                            Console.WriteLine($"-----Livros de {l.Categoria.Genero}-----");
-                         l.ExibirLivro();
-                        }
+                        Console.WriteLine($"-----Livros de {l.Categoria.Genero}-----");
+                        l.ExibirLivro();
                     }
+                }
 
             }
             else if (escolha == 2)
             {
-               ExibirLivro(); 
+                ListarLivros();
+            }
+            else
+            {
+                Console.WriteLine("Escolha uma opção válida!!");
             }
 
         }
 
         public void SepararRevistaporgenero()
         {
-            Console.WriteLine("Você deseja escolher um gênero específico ou ver todos os livros disponíveis?");
+
+            Console.WriteLine("Você deseja escolher um gênero específico ou ver todos as revistas disponíveis?");
             Console.WriteLine("1 - Escolher um gênero específico");
-            Console.WriteLine("2 - Ver todos os livros");
+            Console.WriteLine("2 - Ver todas as revistas");
             int escolha = int.Parse(Console.ReadLine());
 
 
-            if(escolha == 2)
+            if (escolha == 1)
             {
                 Console.WriteLine("Qual dos gêneros abaixo?");
                 Console.WriteLine(" 5 - Infantil");
@@ -217,13 +260,94 @@ namespace Biblioteca
 
                 foreach (Revista r in Revistas)
                 {
-                    if (r.Categoria.Id == escolha2)
+                    if (r.Categoria.Id == escolha2 && r.GetDisponivel() == true)
                     {
                         Console.WriteLine($"-----Livros de {r.Categoria.Genero}-----");
                         r.ExibirRevista();
+
                     }
                 }
             }
+            else if (escolha == 2)
+            {
+                ListarRevistas();
+            }
+            else
+            {
+                Console.WriteLine("Escolha uma opção válida!!");
+            }
+
+
         }
+
+        public void DevoluçãoRevista()
+        {
+            DateTime hoje = DateTime.Now;
+            DateTime DataDevolucao = hoje.AddDays(7);
+            Console.WriteLine($"Você tem até 7 dias para devolver a sua revista." +
+            $" \nO prazo da sua Devolução é: {DataDevolucao}");
+            Console.WriteLine("--------------------");
+
+            Console.WriteLine("----------Penalidade----------");
+            Console.WriteLine("O usuário que devolveu este livro irá sofrer alguma Penalidade?");
+            Console.WriteLine("1 - Sim, irá sofrer penalidades");
+            Console.WriteLine("2 - Não irá sofrer penalidades");
+            Console.WriteLine("------------------------------");
+            int pena = int.Parse(Console.ReadLine());
+
+            if (pena == 1)
+            {
+                Penalidades();
+            }
+            else if (pena == 2)
+            {
+                Console.WriteLine("Ok! Obrigada pela preferencia! Volte sempre! :)");
+            }
+        }
+
+
+        public void DevoluçãoLivro()
+        {
+            DateTime hoje = DateTime.Now;
+            DateTime DataDevolucao = hoje.AddDays(7);
+
+            Console.WriteLine($"Você tem até 7 dias para devolver o seu livro." +
+            $" O prazo da sua Devolução é: {DataDevolucao}");
+            Console.WriteLine("--------------------");
+
+            Console.WriteLine("----------Penalidade----------");
+            Console.WriteLine("O usuário que devolveu este livro irá sofrer alguma Penalidade?");
+            Console.WriteLine("1 - Sim, irá sofrer penalidades");
+            Console.WriteLine("2 - Não irá sofrer penalidades");
+            Console.WriteLine("------------------------------");
+            int pena = int.Parse(Console.ReadLine());
+
+            if (pena == 1)
+            {
+                Penalidades();
+            }
+            Console.WriteLine("OK! Obrigada pela preferencia ;)" +
+                 $"\nVolte sempre!");
+        }
+
+        public void Penalidades()
+        {
+            Console.WriteLine("Qual das penalidade o usuário irá sofrer?");
+            Console.WriteLine("1 - Danos");
+            Console.WriteLine("2 - Atraso na entrega");
+            int penali = int.Parse(Console.ReadLine());
+
+            if (penali == 1)
+            {
+                Console.WriteLine("Em caso de Danos ao Livro/Revista você deverá pagar R$25,00 de multa!");
+            }
+            else if (penali == 2)
+            {
+                Console.WriteLine($"Em caso de atraso, o usuário deverá ficar 7 dias sem pegar livro.");
+            }
+        }
+
+
+
     }
 }

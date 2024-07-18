@@ -10,12 +10,28 @@ namespace Biblioteca
     {
         public int id;
         public string Titulo;
-        private bool Disponivel;
-        private DateTime DataDevolucao;
+        private bool Disponivel { get; set; }
+        public DateTime DataDevolucao;
         public Categoria Categoria;
         public int Classificacao;
 
-       
+        public bool GetDisponivel()
+        {
+            return Disponivel;
+        }
+        public void SetDisponivel()
+        {
+            if(Disponivel == false)
+            {
+                Disponivel= true;
+            }
+            else
+            {
+                Disponivel = false;
+            }
+            
+        }
+
 
         List<Categoria> Categorias = new List<Categoria>
         {
