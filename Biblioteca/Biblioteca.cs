@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
@@ -346,6 +347,60 @@ namespace Biblioteca
                 Console.WriteLine($"Em caso de atraso, o usuário deverá ficar 7 dias sem pegar livro.");
             }
         }
+
+        
+        public void DoacaoLivro(Livro li)
+        {
+            
+           
+            Console.WriteLine("Preencha os dados necessários para a doação");
+            Console.WriteLine("Digite o nome do livro:");
+            li.Titulo = Console.ReadLine();
+
+            Console.WriteLine("Qual dos gêneros abaixo o seu livro se encaixa?");
+            Console.WriteLine(" 1 - Terror");
+            Console.WriteLine(" 2 - Roamance");
+            Console.WriteLine(" 3 - Fantasia");
+            Console.WriteLine(" 4 - Suspense");
+            Console.WriteLine(" 5 - Infantil");
+            int escolha2 = int.Parse(Console.ReadLine());
+            if(escolha2 == 1)
+            {
+                li.Categoria = Terror;
+            }
+            else if (escolha2 == 2)
+            {
+                li.Categoria = Romance;
+            }
+            else if (escolha2 == 3)
+            {
+                li.Categoria = Fantasia;
+            }
+            else if (escolha2 == 4)
+            {
+                li.Categoria =Suspense;
+            }
+            else if (escolha2 == 5)
+            {
+                li.Categoria = Infantil;
+            }
+
+            Console.WriteLine("Qual a classificação indicativa do livro?");
+            li.Classificacao = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Qual é o autor do livro?");
+            li.Autor = Console.ReadLine();
+
+            Console.WriteLine("Qual é o ano de publicação do livro?");
+            li.anoPublicacao = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Obrigada pela doação, a biblioteca pública de Sabará agradece!! :)");
+
+            Livros.Add(li);
+
+            ListarLivros();
+        } 
+
 
 
 

@@ -14,12 +14,19 @@ namespace Biblioteca
 
         public int anoPublicacao { get; set; }
 
+        public Livro(int id, string titulo, bool disp, Categoria cat, int classi)
+            : base(id, titulo, disp, cat, classi)
+        {
+
+        }
+
         public Livro(int id, string titulo, bool disp, Categoria cat, int classi, string autor, int anopubli)
             :base(id,titulo,disp, cat, classi)
         {            
             Autor = autor;
             anoPublicacao = anopubli;
         }
+
         public void ExibirLivro()
         {
             Console.WriteLine("----------Livro:-----------");

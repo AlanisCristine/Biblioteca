@@ -12,11 +12,7 @@ namespace Biblioteca
         public string doacao { get; set; }
         public int cpf { get; set; }
 
-        public void RealizarDoacao(String DOACAO , int CPF)
-        {
-            doacao = DOACAO;
-            cpf = CPF;
-        }
+        
 
        
     }
