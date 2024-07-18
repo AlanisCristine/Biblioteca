@@ -98,6 +98,11 @@ namespace Biblioteca
                     Console.WriteLine("scolha uma opção válida!");
                 }
             }
+            else if (escolha==3)
+            {
+                Biblioteca b = new Biblioteca();
+                b.DoacaoLivro(li);
+            }
 
           
         }
