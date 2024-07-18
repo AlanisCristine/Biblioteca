@@ -349,9 +349,9 @@ namespace Biblioteca
         }
 
         
-        public void DoacaoLivro(Livro li)
+        public void DoacaoLivro()
         {
-            
+            Livro li= new Livro();
            
             Console.WriteLine("Preencha os dados necessários para a doação");
             Console.WriteLine("Digite o nome do livro:");

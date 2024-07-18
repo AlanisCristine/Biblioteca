@@ -97,11 +97,13 @@ namespace Biblioteca
                 {
                     Console.WriteLine("Escolha uma opção válida!");
                 }
+
+                
             }
 
             else if (escolha == 3)
             {
-                Console.WriteLine("A doeção será de livro ou de revista?");
+                Console.WriteLine("A doação será de livro ou de revista?");
                 Console.WriteLine("1 - Livro");
                 Console.WriteLine("2 - Revista");
                 int esc = int.Parse(Console.ReadLine());
@@ -111,10 +113,10 @@ namespace Biblioteca
 
                 if (esc == 1)
                 {
-                    b.DoacaoLivro(liv);
+                    b.DoacaoLivro();
                 }
 
-               
+
             }
         }
 
