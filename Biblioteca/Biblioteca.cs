@@ -351,11 +351,13 @@ namespace Biblioteca
         
         public void DoacaoLivro(Livro li)
         {
+            
+           
             Console.WriteLine("Preencha os dados necessários para a doação");
             Console.WriteLine("Digite o nome do livro:");
             li.Titulo = Console.ReadLine();
 
-            Console.WriteLine("Qual dos gêneros abaixo?");
+            Console.WriteLine("Qual dos gêneros abaixo o seu livro se encaixa?");
             Console.WriteLine(" 1 - Terror");
             Console.WriteLine(" 2 - Roamance");
             Console.WriteLine(" 3 - Fantasia");

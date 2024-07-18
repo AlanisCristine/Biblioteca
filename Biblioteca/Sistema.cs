@@ -21,31 +21,31 @@ namespace Biblioteca
 
             if (escolha == 1)
             {
-                
+
                 Biblioteca b = new Biblioteca();
-                
+
                 Usuario usu = b.PossuiCadastro();
                 //if(usu == null)
                 //{
-                    
+
                 //    usu = new Usuario();
                 //    b.AdicionarUsuarioBanco(usu.Cadastrar());
-                   
+
                 //}
                 Console.WriteLine("Voce deseja editar algum dado?");
                 Console.WriteLine("1 - Sim, desejo.");
                 Console.WriteLine("2 - Não, obrigado(a)");
                 int editardad = int.Parse(Console.ReadLine());
-                if(editardad == 1)
+                if (editardad == 1)
                 {
                     usu.EditarDados();
                 }
-                else if(editardad == 2)
+                else if (editardad == 2)
                 {
                     Console.WriteLine("Então vamos continuar com a sua escolha de livro :)");
                 }
 
-                
+
                 int escolha2 = 0;
                 Console.WriteLine("Você deseja realizar o empréstimo de um livro ou de uma revista?");
                 Console.WriteLine("1- Livro");
@@ -53,7 +53,7 @@ namespace Biblioteca
 
                 escolha2 = int.Parse(Console.ReadLine());
 
-                if(escolha2 == 1)
+                if (escolha2 == 1)
                 {
                     b.SepararLivroporgenero();
                     Console.WriteLine("Livros Disponíveis");
@@ -95,18 +95,28 @@ namespace Biblioteca
                 }
                 else
                 {
-                    Console.WriteLine("scolha uma opção válida!");
+                    Console.WriteLine("Escolha uma opção válida!");
                 }
             }
-            else if (escolha==3)
-            {
-                Biblioteca b = new Biblioteca();
-                b.DoacaoLivro(li);
-            }
 
-          
+            else if (escolha == 3)
+            {
+                Console.WriteLine("A doeção será de livro ou de revista?");
+                Console.WriteLine("1 - Livro");
+                Console.WriteLine("2 - Revista");
+                int esc = int.Parse(Console.ReadLine());
+
+                Livro liv = new Livro();
+                Biblioteca b = new Biblioteca();
+
+                if (esc == 1)
+                {
+                    b.DoacaoLivro(liv);
+                }
+
+               
+            }
         }
-        
 
     }
 }
