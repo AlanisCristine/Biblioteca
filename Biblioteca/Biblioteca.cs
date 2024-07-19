@@ -115,6 +115,10 @@ namespace Biblioteca
             else if (cadastro == 2)
             {
                 usu.Cadastrar();
+            }else
+            {
+                Console.WriteLine("Escolha uma opção válida");
+                PossuiCadastro();
             }
 
             return null;
@@ -135,6 +139,7 @@ namespace Biblioteca
                 else
                 {
                     Console.WriteLine("CPF inválido!!!");
+                    DevEntrar();
                 }
             }
                 return null;
@@ -237,6 +242,7 @@ namespace Biblioteca
             else
             {
                 Console.WriteLine("Escolha uma opção válida!!");
+                SepararLivroporgenero();
             }
 
         }
@@ -276,6 +282,7 @@ namespace Biblioteca
             else
             {
                 Console.WriteLine("Escolha uma opção válida!!");
+                SepararRevistaporgenero();
             }
 
 

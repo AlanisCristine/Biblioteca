@@ -98,7 +98,7 @@ namespace Biblioteca
                     Console.WriteLine("Escolha uma opção válida!");
                 }
 
-                
+
             }
 
             else if (escolha == 3)
@@ -117,16 +117,22 @@ namespace Biblioteca
                 {
                     b.DoacaoLivro();
                 }
-                else if(esc == 2)
+                else if (esc == 2)
                 {
                     b.DoacaoRevista();
                 }
 
 
+
+            }
+            else if (escolha == 0)
+            {
+                Console.WriteLine("Programa finalizado!");
             }
             else
             {
                 Console.WriteLine("Escolha uma opção válida");
+                IniciarSistema();
             }
         }
 
