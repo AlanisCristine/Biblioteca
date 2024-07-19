@@ -9,20 +9,22 @@ namespace Biblioteca
 {
     public class Livro : Documento
     {
-        
+
         public string Autor { get; set; }
 
         public int anoPublicacao { get; set; }
 
-        public Livro(int id, string titulo, bool disp, Categoria cat, int classi)
-            : base(id, titulo, disp, cat, classi)
+        public Livro()
+            : base(0,string.Empty,false, null, 0) 
         {
-
+        
         }
 
+
+
         public Livro(int id, string titulo, bool disp, Categoria cat, int classi, string autor, int anopubli)
-            :base(id,titulo,disp, cat, classi)
-        {            
+            : base(id, titulo, disp, cat, classi)
+        {
             Autor = autor;
             anoPublicacao = anopubli;
         }
@@ -39,7 +41,7 @@ namespace Biblioteca
             Console.WriteLine("-----------------------------------");
         }
 
-       
+
     }
 
 }

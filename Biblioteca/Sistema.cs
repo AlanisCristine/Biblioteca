@@ -15,7 +15,7 @@ namespace Biblioteca
             Console.WriteLine("Para iniciar, qual das opções abaixo você deseja realizar?");
             Console.WriteLine("1- Emprestimo");
             Console.WriteLine("2- Devolução");
-            Console.WriteLine("3- Doação de Livros");
+            Console.WriteLine("3- Doação de Livros ou Revistas");
             Console.WriteLine("0- Sair do sistema");
             int escolha = int.Parse(Console.ReadLine());
 
@@ -97,24 +97,36 @@ namespace Biblioteca
                 {
                     Console.WriteLine("Escolha uma opção válida!");
                 }
+
+                
             }
 
             else if (escolha == 3)
             {
-                Console.WriteLine("A doeção será de livro ou de revista?");
+                Console.WriteLine("A doação será de livro ou de revista?");
                 Console.WriteLine("1 - Livro");
                 Console.WriteLine("2 - Revista");
                 int esc = int.Parse(Console.ReadLine());
 
                 Livro liv = new Livro();
+                Revista r = new Revista();
+
                 Biblioteca b = new Biblioteca();
 
                 if (esc == 1)
                 {
-                    b.DoacaoLivro(liv);
+                    b.DoacaoLivro();
+                }
+                else if(esc == 2)
+                {
+                    b.DoacaoRevista();
                 }
 
-               
+
+            }
+            else
+            {
+                Console.WriteLine("Escolha uma opção válida");
             }
         }
 

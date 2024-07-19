@@ -349,9 +349,9 @@ namespace Biblioteca
         }
 
         
-        public void DoacaoLivro(Livro li)
+        public void DoacaoLivro()
         {
-            
+            Livro li= new Livro();
            
             Console.WriteLine("Preencha os dados necessários para a doação");
             Console.WriteLine("Digite o nome do livro:");
@@ -396,11 +396,70 @@ namespace Biblioteca
 
             Console.WriteLine("Obrigada pela doação, a biblioteca pública de Sabará agradece!! :)");
 
+            li.SetDisponivel();
+
             Livros.Add(li);
 
             ListarLivros();
-        } 
+        }
 
+        public void DoacaoRevista()
+        {
+            Revista re = new Revista();
+
+            Console.WriteLine("Preencha os dados necessários para a doação");
+            Console.WriteLine("Digite o nome do livro:");
+            re.Titulo = Console.ReadLine();
+
+            Console.WriteLine("Qual dos gêneros abaixo o seu livro se encaixa?");
+            Console.WriteLine(" 1 - Terror");
+            Console.WriteLine(" 2 - Roamance");
+            Console.WriteLine(" 3 - Fantasia");
+            Console.WriteLine(" 4 - Suspense");
+            Console.WriteLine(" 5 - Infantil");
+            int escolha2 = int.Parse(Console.ReadLine());
+            if (escolha2 == 1)
+            {
+                re.Categoria = Terror;
+            }
+            else if (escolha2 == 2)
+            {
+                re.Categoria = Romance;
+            }
+            else if (escolha2 == 3)
+            {
+                re.Categoria = Fantasia;
+            }
+            else if (escolha2 == 4)
+            {
+                re.Categoria = Suspense;
+            }
+            else if (escolha2 == 5)
+            {
+                re.Categoria = Infantil;
+            }
+            else
+            {
+                Console.WriteLine("Escolha uma opção válida");
+            }
+
+            Console.WriteLine("Qual a classificação indicativa do livro?");
+            re.Classificacao = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Qual é o autor do livro?");
+            re.Autor = Console.ReadLine();
+
+            Console.WriteLine("Qual é o ano de publicação do livro?");
+            re.anoPublicacao = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Obrigada pela doação, a biblioteca pública de Sabará agradece!! :)");
+
+            re.SetDisponivel();
+
+            Revistas.Add(re);
+
+            ListarRevistas();
+        }
 
 
 
