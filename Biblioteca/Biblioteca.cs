@@ -430,11 +430,9 @@ namespace Biblioteca
             re.Titulo = Console.ReadLine();
 
             Console.WriteLine("Qual dos gêneros abaixo o seu livro se encaixa?");
-            Console.WriteLine(" 1 - Terror");
-            Console.WriteLine(" 2 - Roamance");
-            Console.WriteLine(" 3 - Fantasia");
-            Console.WriteLine(" 4 - Suspense");
-            Console.WriteLine(" 5 - Infantil");
+            Console.WriteLine(" 1 - Infantil");
+            Console.WriteLine(" 2 - Moda");
+            Console.WriteLine(" 3 - Culinária");
             int escolha2 = int.Parse(Console.ReadLine());
             if (escolha2 == 1)
             {
