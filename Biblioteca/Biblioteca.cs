@@ -158,6 +158,11 @@ namespace Biblioteca
             else
             {
                 Console.WriteLine($"{rev.Titulo} Escolhida com sucesso!");
+                DateTime hoje = DateTime.Now;
+                DateTime DataDevolucao = hoje.AddDays(7);
+                Console.WriteLine($"Você tem até 7 dias para devolver a sua revista." +
+                $" \nO prazo da sua Devolução é: {DataDevolucao}");
+                Console.WriteLine("--------------------");
             }
         }
 
@@ -174,11 +179,17 @@ namespace Biblioteca
             {
                 Console.WriteLine("Infelizmente este livro não é indicado para a sua idade. Que tal escolher outro?");
                 ListarLivros();
+
                 EscolherLivro(u);
             }
             else
             {
                 Console.WriteLine($"{liv.Titulo} Escolhida com sucesso!");
+                DateTime hoje = DateTime.Now;
+                DateTime DataDevolucao = hoje.AddDays(7);
+                Console.WriteLine($"Você tem até 7 dias para devolver o seu livro." +
+                $" \nO prazo da sua Devolução é: {DataDevolucao}");
+                Console.WriteLine("--------------------");
             }
 
 
